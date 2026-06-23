@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ==========================================
+  // 1. CORE ELEMENTS SETUP
+  // ==========================================
   const bgMusic = document.getElementById("bg-music");
   const toggleMusicBtn = document.getElementById("toggle-music");
   const trackInfo = document.querySelector(".track-info");
@@ -8,8 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const openBtn = document.getElementById("open-btn");
   const heartColors = ["#ff69b4", "#ff1493", "#ff3344", "#ffb6c1", "#ff0055"];
 
-  // Burst Particle (Klik/Tap di layar)
+  // ==========================================
+  // 2. NATIVE TOUCH/CLICK BURST PARTICLES
+  // ==========================================
   document.addEventListener("pointerdown", (e) => {
+    // Jangan ledakkan hati kalau klik tombol atau modal agar tidak mengganggu UI
     if (
       e.target.closest("button") ||
       e.target.closest("a") ||
@@ -23,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       heart.classList.add("fas", "fa-heart", "burst-particle");
 
       const angle = Math.random() * Math.PI * 2;
-      const distance = Math.random() * 90 + 30;
+      const distance = Math.random() * 90 + 30; // Premium spread
       const dx = Math.cos(angle) * distance;
       const dy = Math.sin(angle) * distance;
 
@@ -39,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ==========================================
+  // 3. MAGIC HEART CURSOR TRAIL
+  // ==========================================
   const cursor = document.getElementById("custom-cursor");
   if (cursor) {
     document.addEventListener("mousemove", (e) => {
@@ -47,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ==========================================
+  // 4. ADAPTIVE 3D TILT EFFECT (DESKTOP ONLY)
+  // ==========================================
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   if (!isMobile) {
     const polaroids = document.querySelectorAll(".tilt-effect");
@@ -69,20 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === NEW: FULLSCREEN LIGHTBOX LOGIC ===
+  // ==========================================
+  // 5. FULLSCREEN LIGHTBOX (GALLERY)
+  // ==========================================
   const lightbox = document.getElementById("lightbox-modal");
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
   const lightboxClose = document.getElementById("lightbox-close");
 
   if (lightbox) {
-    // Buka gambar saat polaroid diklik
     document.querySelectorAll(".polaroid").forEach((card) => {
       card.addEventListener("click", () => {
         const imgElement = card.querySelector("img");
         const captionElement = card.querySelector(".caption");
 
-        // Ambil source foto asli
         lightboxImg.src = imgElement.src;
         lightboxCaption.innerText = captionElement.innerText;
 
@@ -91,13 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Tutup saat tombol X ditekan
     lightboxClose.addEventListener("click", () => {
       lightbox.classList.remove("active");
       setTimeout(() => lightbox.classList.add("hidden"), 300);
     });
 
-    // Tutup saat area gelap di luar foto ditekan
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove("active");
@@ -106,7 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Typewriter
+  // ==========================================
+  // 6. HOME HERO TYPEWRITER
+  // ==========================================
   const typewriterElement = document.getElementById("typewriter-text");
   if (typewriterElement) {
     const textToType = "1st Month Anniversary";
@@ -134,17 +146,77 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!introScreen) setTimeout(typeWriter, 600);
   }
 
-  const letterLines = document.querySelectorAll(".reveal-line");
-  if (letterLines.length > 0) {
-    setTimeout(() => {
-      letterLines.forEach((line, index) => {
-        setTimeout(() => {
-          line.classList.add("fade-in-line");
-        }, index * 1100);
-      });
-    }, 400);
+  // ==========================================
+  // 7. LONG LETTER SEQUENTIAL TYPEWRITER
+  // ==========================================
+  const letterContainer = document.getElementById(
+    "typewriter-letter-container",
+  );
+  if (letterContainer) {
+    const letterParagraphs = [
+      "Happy 1st month anniversary, my favorite person! ❤️",
+      "Satu bulan ini mungkin terdengar singkat bagi sebagian orang, tapi buat aku, bulan ini adalah salah satu chapter terbaik dalam hidupku. Waktu rasanya berjalan cepat banget kalau aku lagi sama kamu.",
+      "Tapi di saat yang sama, setiap detik bersamamu terasa begitu bermakna. Sama seperti lagu yang lagi main sekarang—there's something about you yang selalu berhasil bikin aku tersenyum setiap kali nama kamu muncul di layar HP-ku.",
+      "Aku perhatiin akhir-akhir ini kamu lagi banyak pikiran dan mungkin lelah. Aku tahu kadang hidup bisa terasa berat, capek, dan mungkin nggak setiap hari berjalan sesuai dengan apa yang kamu rencanakan.",
+      "Kadang kamu mungkin merasa kewalahan dan mulai meragukan diri sendiri. Tapi aku mau kamu tahu satu hal penting: You are doing amazing.",
+      "Kamu itu hebat, kamu tangguh, dan aku akan selalu bangga sama kamu. Apapun yang lagi kamu kejar, apapun yang lagi kamu hadapi sekarang, tolong jangan pernah merasa sendirian ya?",
+      "Aku akan selalu ada di sini buat jadi pendengar yang baik, tempat bersandar saat kamu capek, dan supporter nomor satu kamu di garis paling depan.",
+      "Tolong jangan lupa istirahat, makan yang teratur, dan jangan terlalu keras sama diri sendiri. Kamu pantas mendapatkan semua hal baik dan kebahagiaan di dunia ini.",
+      "Terima kasih udah kasih aku kesempatan buat jadi bagian dari hari-harimu, jadi alasan senyummu, dan jadi tempat kamu berbagi banyak cerita.",
+      "Semoga ini bukan cuma soal satu bulan pertama, tapi menjadi awal dari sangat banyak bulan dan tahun yang penuh dengan petualangan dan memori indah bareng kita.",
+      "Keep shining, keep being the amazing person you are. I love you more than words can say! ✨",
+      "With all my heart,",
+      "Me",
+    ];
+
+    let currentPara = 0;
+    let currentChar = 0;
+    let currentElement = null;
+
+    function typeLetter() {
+      if (currentPara < letterParagraphs.length) {
+        if (currentChar === 0) {
+          currentElement = document.createElement("p");
+          currentElement.className = "letter-para typing-cursor";
+
+          if (currentPara === letterParagraphs.length - 1) {
+            currentElement.classList.add("signature");
+          } else if (currentPara === letterParagraphs.length - 2) {
+            currentElement.classList.add("sign-off");
+          }
+
+          letterContainer.appendChild(currentElement);
+        }
+
+        if (currentChar < letterParagraphs[currentPara].length) {
+          currentElement.textContent +=
+            letterParagraphs[currentPara].charAt(currentChar);
+          currentChar++;
+
+          let typeSpeed = Math.random() * 30 + 20;
+
+          const lastChar = letterParagraphs[currentPara].charAt(
+            currentChar - 1,
+          );
+          if ([".", "!", "?"].includes(lastChar)) typeSpeed += 400;
+          if ([",", ":"].includes(lastChar)) typeSpeed += 200;
+
+          setTimeout(typeLetter, typeSpeed);
+        } else {
+          currentElement.classList.remove("typing-cursor");
+          currentPara++;
+          currentChar = 0;
+          setTimeout(typeLetter, 800);
+        }
+      }
+    }
+
+    setTimeout(typeLetter, 1000);
   }
 
+  // ==========================================
+  // 8. APP OVERLAY MENU NAVIGATION
+  // ==========================================
   const menuToggleBtn = document.getElementById("menu-toggle-btn");
   const letterMenu = document.getElementById("letter-menu");
   const closeMenuBtn = document.getElementById("close-menu-btn");
@@ -160,6 +232,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ==========================================
+  // 9. MULTI-PAGE MUSIC SYNCHRONIZATION
+  // ==========================================
   const musicPlayingStatus = localStorage.getItem("musicPlaying");
   const musicCurrentTime = localStorage.getItem("musicTime");
   const isUnlocked = localStorage.getItem("siteUnlocked");
@@ -230,6 +305,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // ==========================================
+  // 10. BACKGROUND FLOATING HEARTS
+  // ==========================================
   setInterval(createHeart, 500);
 
   function createHeart() {
