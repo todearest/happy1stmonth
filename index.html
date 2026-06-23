@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Happy 1st Month Anniversary ❤️ - Our Space</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="app-body">
+    <div id="custom-cursor"><i class="fas fa-heart"></i></div>
+
+    <div id="intro-screen">
+      <div class="intro-content">
+        <div class="intro-logo">✨</div>
+        <h1>Special for You</h1>
+        <p>Ada sebuah pesan manis untukmu hari ini...</p>
+        <button id="open-btn">
+          <i class="fas fa-envelope-open-text"></i> Buka Sekarang
+        </button>
+      </div>
+    </div>
+
+    <div id="main-content" class="hidden app-container">
+      <audio id="bg-music" loop>
+        <source src="about-you.mp3" type="audio/mpeg" />
+      </audio>
+
+      <div class="mesh-gradient"></div>
+      <div id="hearts-container"></div>
+
+      <section class="hero app-screen">
+        <div class="hero-card">
+          <h2 class="subtitle">Happy</h2>
+          <h1 class="title typewriter" id="typewriter-text"></h1>
+          <p class="date fade-up-delay">Me & You</p>
+          <div class="hero-icon scale-up-anim">
+            <i class="fas fa-heart pulse"></i>
+          </div>
+          <p class="scroll-hint fade-up-delay">
+            Ketuk amplop di kiri bawah untuk menjelajah ✨
+          </p>
+        </div>
+      </section>
+
+      <button id="menu-toggle-btn" class="floating-menu-btn pulse-menu">
+        <i class="fas fa-envelope"></i>
+      </button>
+
+      <div id="letter-menu" class="letter-menu-overlay hidden">
+        <div class="letter-menu-content">
+          <button id="close-menu-btn" class="close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="stamp">💖</div>
+          <h2>Where to go?</h2>
+          <ul class="letter-nav-links">
+            <li>
+              <a href="index.html" class="active"
+                ><i class="fas fa-moon"></i> Our Space</a
+              >
+            </li>
+            <li>
+              <a href="gallery.html"
+                ><i class="fas fa-camera-retro"></i> Memory Lane</a
+              >
+            </li>
+            <li>
+              <a href="letter.html"
+                ><i class="fas fa-heart-jwt"></i> Heart to Heart</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="music-widget">
+        <div class="track-info">
+          <i class="fas fa-music"></i>
+          <span>About You - The 1975</span>
+        </div>
+        <button id="toggle-music"><i class="fas fa-play"></i></button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

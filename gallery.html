@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Our Memories ✨ - Memory Lane</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="app-body">
+    <div id="custom-cursor"><i class="fas fa-heart"></i></div>
+
+    <audio id="bg-music" loop>
+      <source src="about-you.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="mesh-gradient"></div>
+    <div id="hearts-container"></div>
+
+    <section class="gallery-page app-screen">
+      <h3 class="section-title reveal-text">Our Little Moments</h3>
+      <div class="polaroid-container">
+        <div class="polaroid tilt-effect">
+          <img src="asset/1.jpg" alt="Memory 1" />
+          <div class="caption">I adore you ❤️</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/2.jpg" alt="Memory 2" />
+          <div class="caption">Every moment with you ✨</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/3.jpg" alt="Memory 3" />
+          <div class="caption">My favorite person 🥺</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/4.jpg" alt="Memory 4" />
+          <div class="caption">Life is fun with you 🎢</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/5.jpg" alt="Memory 5" />
+          <div class="caption">Safe in your arms 🧸</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/6.jpg" alt="Memory 6" />
+          <div class="caption">Love your silly side 🤪</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/7.jpg" alt="Memory 7" />
+          <div class="caption">My comfort zone ☁️</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/8.jpg" alt="Memory 8" />
+          <div class="caption">You have my heart 🫶</div>
+        </div>
+        <div class="polaroid tilt-effect">
+          <img src="asset/9.jpg" alt="Memory 9" />
+          <div class="caption">The most incredible thing 🤍</div>
+        </div>
+      </div>
+    </section>
+
+    <div id="lightbox-modal" class="hidden">
+      <button id="lightbox-close"><i class="fas fa-times"></i></button>
+      <img id="lightbox-img" src="" alt="Fullscreen" />
+      <div id="lightbox-caption">Caption</div>
+    </div>
+
+    <button id="menu-toggle-btn" class="floating-menu-btn pulse-menu">
+      <i class="fas fa-envelope"></i>
+    </button>
+    <div id="letter-menu" class="letter-menu-overlay hidden">
+      <div class="letter-menu-content">
+        <button id="close-menu-btn" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="stamp">💖</div>
+        <h2>Where to go?</h2>
+        <ul class="letter-nav-links">
+          <li>
+            <a href="index.html"><i class="fas fa-moon"></i> Our Space</a>
+          </li>
+          <li>
+            <a href="gallery.html" class="active"
+              ><i class="fas fa-camera-retro"></i> Memory Lane</a
+            >
+          </li>
+          <li>
+            <a href="letter.html"
+              ><i class="fas fa-heart"></i> Heart to Heart</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="music-widget">
+      <div class="track-info">
+        <i class="fas fa-music"></i><span>About You - The 1975</span>
+      </div>
+      <button id="toggle-music"><i class="fas fa-play"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

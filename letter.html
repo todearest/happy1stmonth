@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Message For You 💌 - Heart to Heart</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="app-body">
+    <div id="custom-cursor"><i class="fas fa-heart"></i></div>
+
+    <audio id="bg-music" loop>
+      <source src="about-you.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="mesh-gradient"></div>
+    <div id="hearts-container"></div>
+
+    <section class="message-page app-screen">
+      <h3 class="section-title reveal-text">A Letter From Heart</h3>
+
+      <div class="letter-container modern-letter reveal-text">
+        <div class="sparkle-deco deco-top-right">✨</div>
+        <div class="sparkle-deco deco-bottom-left">✨</div>
+        <div class="corner-ribbon">Dear You</div>
+
+        <div class="letter-paper">
+          <p class="reveal-line line-1">Happy 1st month anniversary!</p>
+          <br />
+          <p class="reveal-line line-2">
+            Satu bulan ini mungkin terasa singkat, tapi rasanya seperti aku udah
+            kenal kamu selamanya. Sama seperti lagu yang lagi main sekarang,
+            <i>there's something about you</i> yang bikin aku selalu tersenyum
+            setiap hari.
+          </p>
+          <br />
+          <p class="reveal-line line-3">
+            Terima kasih sudah menjadi bagian terindah di bulan ini. Semoga ini
+            jadi awal dari perjalanan panjang kita ke depan. I love you more
+            than words can say! ❤️
+          </p>
+          <p class="signature reveal-line line-4">With love, Me</p>
+        </div>
+
+        <div class="digital-seal-container">
+          <div class="digital-seal">💖</div>
+        </div>
+      </div>
+    </section>
+
+    <button id="menu-toggle-btn" class="floating-menu-btn pulse-menu">
+      <i class="fas fa-envelope"></i>
+    </button>
+    <div id="letter-menu" class="letter-menu-overlay hidden">
+      <div class="letter-menu-content">
+        <button id="close-menu-btn" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="stamp">💖</div>
+        <h2>Where to go?</h2>
+        <ul class="letter-nav-links">
+          <li>
+            <a href="index.html"><i class="fas fa-moon"></i> Our Space</a>
+          </li>
+          <li>
+            <a href="gallery.html"
+              ><i class="fas fa-camera-retro"></i> Memory Lane</a
+            >
+          </li>
+          <li>
+            <a href="letter.html" class="active"
+              ><i class="fas fa-heart"></i> Heart to Heart</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="music-widget">
+      <div class="track-info">
+        <i class="fas fa-music"></i><span>About You - The 1975</span>
+      </div>
+      <button id="toggle-music"><i class="fas fa-play"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
