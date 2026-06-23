@@ -368,7 +368,7 @@ body.app-body {
   cursor: pointer;
 }
 
-/* === POLAROID MEMORY LANE (ANTI-CROP FIX) === */
+/* === POLAROID MEMORY LANE === */
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 3.5rem);
@@ -397,15 +397,13 @@ body.app-body {
     box-shadow 0.4s ease;
   transform-style: preserve-3d;
 }
-
-/* FIX 1: Hapus height tetap, biarkan auto menyesuaikan rasio asli foto */
 .polaroid img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
   border-radius: 2px;
-  background-color: #fafafa; /* Efek background kalau foto PNG transparan */
+  background-color: #fafafa;
 }
 .polaroid .caption {
   text-align: center;
@@ -424,7 +422,7 @@ body.app-body {
   }
 }
 
-/* === NEW: FULLSCREEN LIGHTBOX STYLES === */
+/* === FULLSCREEN LIGHTBOX STYLES === */
 #lightbox-modal {
   position: fixed;
   top: 0;
@@ -432,7 +430,7 @@ body.app-body {
   width: 100%;
   height: 100%;
   z-index: 4000;
-  background-color: rgba(20, 0, 5, 0.9); /* Latar gelap romantis */
+  background-color: rgba(20, 0, 5, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
@@ -491,7 +489,7 @@ body.app-body {
   transform: rotate(90deg);
 }
 
-/* Modern Letter */
+/* === MODERN LETTER STYLES === */
 .modern-letter {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(20px);
@@ -521,19 +519,30 @@ body.app-body {
   left: 25px;
   animation-delay: 1s;
 }
+
+/* FIX UX: Memperbaiki pita agar tidak menutupi teks */
 .corner-ribbon {
   position: absolute;
-  top: 18px;
-  left: -30px;
+  top: 20px;
+  left: -35px;
   background: var(--dark-pink);
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 4px 30px;
+  padding: 5px 35px;
   transform: rotate(-45deg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 1.5px;
+  z-index: 5;
 }
+
+/* FIX UX: Mendorong teks ke bawah agar aman dari pita Ribbon di pojok kiri atas */
+#typewriter-letter-container {
+  margin-top: 35px;
+  position: relative;
+  z-index: 2;
+}
+
 .digital-seal-container {
   margin-top: 35px;
   display: flex;
@@ -565,18 +574,35 @@ body.app-body {
   opacity: 1;
   transform: translateY(0);
 }
-.letter-paper p {
+
+/* === LONG LETTER TYPEWRITER STYLES === */
+.letter-para {
   font-size: 1.05rem;
   line-height: 1.8;
   color: #444;
   text-align: justify;
+  margin-bottom: 20px;
+  min-height: 1.5em;
 }
-.letter-paper .signature {
+.letter-para.sign-off {
+  text-align: right;
+  margin-bottom: 5px;
   margin-top: 30px;
+  font-weight: 600;
+}
+.letter-para.signature {
   text-align: right;
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--red-love);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.typing-cursor::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  color: var(--primary-pink);
+  margin-left: 3px;
   font-weight: bold;
 }
 
@@ -678,7 +704,6 @@ body.app-body {
     width: 100%;
     padding: 0 5px;
   }
-
   .polaroid {
     width: 100%;
     max-width: 100%;
@@ -686,14 +711,11 @@ body.app-body {
     padding: 8px 8px 15px 8px;
     border-radius: 6px;
   }
-
-  /* FIX 2: Hapus height di versi HP agar tetap tidak terpotong */
   .polaroid .caption {
     font-size: 0.85rem;
     margin-top: 8px;
   }
 
-  /* Lightbox Mobile Adjustments */
   #lightbox-caption {
     font-size: 2rem;
     margin-top: 15px;
@@ -706,11 +728,22 @@ body.app-body {
     font-size: 1.2rem;
   }
 
+  /* FIX UX MOBILE: Memperbesar jarak atas di box surat agar aman dari pita di HP */
   .modern-letter {
-    padding: 40px 20px 30px 20px !important;
+    padding: 60px 20px 30px 20px !important;
     border-radius: 24px !important;
   }
-  .letter-paper p {
+  .corner-ribbon {
+    top: 15px;
+    left: -32px;
+    font-size: 0.65rem;
+    padding: 4px 30px;
+  }
+  #typewriter-letter-container {
+    margin-top: 15px;
+  }
+
+  .letter-para {
     font-size: 0.95rem;
     text-align: left;
   }
@@ -729,41 +762,4 @@ body.app-body {
   .track-info span {
     display: none;
   }
-}
-
-/* === LONG LETTER TYPEWRITER STYLES === */
-.letter-para {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #444;
-  text-align: justify;
-  margin-bottom: 20px;
-  min-height: 1.5em; /* Mencegah layout loncat saat mengetik */
-}
-
-/* Style khusus untuk kalimat penutup (Sign-off) */
-.letter-para.sign-off {
-  text-align: right;
-  margin-bottom: 5px;
-  margin-top: 30px;
-  font-weight: 600;
-}
-
-/* Style khusus untuk Tanda Tangan */
-.letter-para.signature {
-  text-align: right;
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  color: var(--red-love);
-  font-weight: bold;
-  margin-bottom: 0;
-}
-
-/* Kursor berkedip saat mengetik */
-.typing-cursor::after {
-  content: "|";
-  animation: blink 0.7s infinite;
-  color: var(--primary-pink);
-  margin-left: 3px;
-  font-weight: bold;
 }
