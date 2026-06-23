@@ -730,3 +730,40 @@ body.app-body {
     display: none;
   }
 }
+
+/* === LONG LETTER TYPEWRITER STYLES === */
+.letter-para {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  margin-bottom: 20px;
+  min-height: 1.5em; /* Mencegah layout loncat saat mengetik */
+}
+
+/* Style khusus untuk kalimat penutup (Sign-off) */
+.letter-para.sign-off {
+  text-align: right;
+  margin-bottom: 5px;
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+/* Style khusus untuk Tanda Tangan */
+.letter-para.signature {
+  text-align: right;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--red-love);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/* Kursor berkedip saat mengetik */
+.typing-cursor::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  color: var(--primary-pink);
+  margin-left: 3px;
+  font-weight: bold;
+}
