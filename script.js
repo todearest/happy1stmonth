@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "Semoga ini bukan cuma soal satu bulan pertama, tapi menjadi awal dari sangat banyak bulan dan tahun yang penuh dengan petualangan dan memori indah bareng kita.",
       "Keep shining, keep being the amazing person you are. I love you more than words can say! ✨",
       "With all my heart,",
-      "Me",
+      "Leonard",
     ];
 
     let currentPara = 0;
